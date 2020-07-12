@@ -1,6 +1,6 @@
 # On L-p Robustness of Decision Stumps and Trees
 
-This repo contains an implementation for **L-p verification for decision stump ensemble and decision tree ensemble**, based on [provably-robust-boosting](https://github.com/max-andr/provably-robust-boosting) and [treeVerification](https://github.com/chenhongge/treeVerification)
+This repo contains an implementation of **L-p robustness of Ensemble Decision Stumps and Trees**, based on [provably-robust-boosting](https://github.com/max-andr/provably-robust-boosting) and [treeVerification](https://github.com/chenhongge/treeVerification)
 
 ## Dependences
 ### ensemble stump verification and ensemble stump/tree training
@@ -9,8 +9,9 @@ This repo contains an implementation for **L-p verification for decision stump e
 - treelite
 - xgboost
 - numpy
+- gurobi
 
-Please see requirements.txt for the detail information.
+Please see Lp_stumps_trees/requirements.txt for the detail information.
 
 ### ensemble tree verification
 - the same as https://github.com/chenhongge/treeVerification
@@ -47,7 +48,7 @@ python convert_to_libsvm.py --model ./models/breast_cancer/breast_cancer --num_f
 
 #### L-p tree ensemble verification
 
-Based on [treeVerification](https://github.com/chenhongge/treeVerification), we add a new parameter named *order*, which means the order of the norm.
+We add a new parameter named *order* based on [treeVerification](https://github.com/chenhongge/treeVerification), which means the order of the norm.
 
 ```
 cd Lp_treeVerification
@@ -66,7 +67,7 @@ python train_Lp.py --dataset breast_cancer --weak_learner stump --n_bins 40 --lr
 #### L-p tree ensemble training
 
 ```
-python train_Lp.py --dataset breast_cancer --weak_learner tree --n_bins 40 --lr 2 --n_tree 10  --order 1 --schedule_len 4 --max_depth 3 --sample_size 5000
+python train_Lp.py --dataset breast_cancer --weak_learner tree --n_bins 40 --lr 1 --n_tree 10  --order 1 --schedule_len 4 --max_depth 3 --sample_size 5000
 ```
 ## Models
 

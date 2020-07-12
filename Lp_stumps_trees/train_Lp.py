@@ -69,25 +69,27 @@ def main():
         begin = time.time()
         if args.weak_learner == 'stump':
             weak_learner = ensemble.fit_stumps_over_coords(X_train, y_train, gamma, model, cur_eps, order = args.order,  precision = args.precision)
+            margin_prev = ensemble.certify_exact(X_train, y_train, eps)
+            gamma = np.exp(-ensemble.certify_exact(X_train, y_train, eps))
         else:
             weak_learner = ensemble.fit_tree_Lp(np.asarray(range(X_train.shape[0])), X_train, y_train, cur_eps, 1, args.order, np.zeros(X_train.shape[0]))
         print("time: {}".format(time.time() - begin))
 
         # print(ensemble.certify_exact_norm_zero(X_train, y_train, 1))
         # begin = time.time()
-        margin_prev = ensemble.certify_exact(X_train, y_train, eps)  # needed for pruning
+        # margin_prev = ensemble.certify_exact(X_train, y_train, eps)  # needed for pruning
         # print(time.time() - begin)
         # print(margin_prev)
         ensemble.add_weak_learner(weak_learner)
         # ensemble.prune_last_tree(X_train, y_train, margin_prev, eps, model)
         # calculate per-example weights for the next iteration
-        gamma = np.exp(-ensemble.certify_exact(X_train, y_train, eps))
+        # gamma = np.exp(-ensemble.certify_exact(X_train, y_train, eps))
         
         # track generalization and robustness
         yf_train = y_train * ensemble.predict(X_train)
         yf_test = y_test * ensemble.predict(X_test)
         
-        threshold_cumu_value = ensemble.build_cumu_threshold_value()
+        # threshold_cumu_value = ensemble.build_cumu_threshold_value()
         # print(threshold_cumu_value)
 
 
@@ -114,9 +116,10 @@ def main():
                 i, np.mean(yf_test < 0.0), np.mean(min_yf_test < 0.0), np.mean(min_yf_test_Linf < 0.0), loss))
         else:
             min_yf_test_Linf = ensemble.certify_treewise(X_test, y_test, eps)
+            # min_yf_train = ensemble.certify_treewise(X_train, y_test, eps)
             yf_test = ensemble.predict(X_test) * y_test
-            print('Iteration: {}, test error: {:.2%}, upper bound on Linf robust error: {:.2%}, loss: {:.5f}'.format(
-                i, np.mean(yf_test < 0.0), np.mean(min_yf_test_Linf < 0.0), loss))
+            print('Iteration: {}, test error: {:.2%}, upper bound on Linf robust error: {:.2%}'.format(
+                i, np.mean(yf_test < 0.0), np.mean(min_yf_test_Linf < 0.0)))
 
     ensemble.export_json("{}_{}_{}.json".format(args.dataset, eps, args.weak_learner))
     ensemble.save("{}_{}_{}.ensemble".format(args.dataset, eps, args.weak_learner))
