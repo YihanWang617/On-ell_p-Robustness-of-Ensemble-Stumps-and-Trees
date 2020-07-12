@@ -1,0 +1,13 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+.idea/
+data/
+__pycache__
+*.npy
+*.json
+.DS_Store
+
+tmp

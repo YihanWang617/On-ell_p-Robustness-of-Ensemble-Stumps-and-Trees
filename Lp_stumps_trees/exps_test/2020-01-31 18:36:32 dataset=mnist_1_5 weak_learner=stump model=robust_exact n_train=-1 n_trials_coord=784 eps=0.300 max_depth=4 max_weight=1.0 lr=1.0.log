@@ -1,0 +1,10 @@
+Boosting started: 2020-01-31 18:36:32 dataset=mnist_1_5 weak_learner=stump model=robust_exact n_train=-1 n_iter=300 n_trials_coord=784 eps=0.300 min_samples_split=10 min_samples_leaf=5 max_depth=4 max_weight=1.0 lr=1.0 n_trials_attack=1 cb_weights=False max_weight=1.0 n_bins=-1 expand_train_set=False
+iter: 1 [test] err 11.40% adv_err_lb 11.40% adv_err 16.13% adv_err_ub 16.13% | [valid] err 11.72% adv_err 16.74% | [train] err 12.00% adv_err 17.02% loss 0.71799 |  (122.968s, 0.002s)
+iter: 2 [test] err 4.64% adv_err_lb 5.87% adv_err 9.82% adv_err_ub 9.82% | [valid] err 5.26% adv_err 10.73% | [train] err 5.46% adv_err 10.80% loss 0.61396 |  (229.521s, 0.003s)
+iter: 3 [test] err 4.64% adv_err_lb 7.45% adv_err 9.82% adv_err_ub 9.82% | [valid] err 5.26% adv_err 10.73% | [train] err 5.46% adv_err 10.80% loss 0.54498 |  (347.223s, 0.004s)
+iter: 4 [test] err 4.54% adv_err_lb 6.56% adv_err 10.71% adv_err_ub 10.71% | [valid] err 5.30% adv_err 11.43% | [train] err 5.66% adv_err 11.64% loss 0.48617 |  (471.416s, 0.006s)
+iter: 5 [test] err 3.55% adv_err_lb 5.33% adv_err 9.47% adv_err_ub 9.47% | [valid] err 4.73% adv_err 10.28% | [train] err 4.70% adv_err 10.10% loss 0.44965 |  (607.191s, 0.007s)
+iter: 6 [test] err 2.12% adv_err_lb 3.80% adv_err 6.51% adv_err_ub 6.51% | [valid] err 3.08% adv_err 7.28% | [train] err 2.84% adv_err 6.84% loss 0.41804 |  (798.773s, 0.008s)
+iter: 7 [test] err 2.12% adv_err_lb 4.59% adv_err 6.36% adv_err_ub 6.36% | [valid] err 3.54% adv_err 7.36% | [train] err 3.40% adv_err 7.26% loss 0.39456 |  (934.111s, 0.010s)
+iter: 8 [test] err 2.07% adv_err_lb 4.39% adv_err 6.17% adv_err_ub 6.17% | [valid] err 2.96% adv_err 6.91% | [train] err 2.96% adv_err 6.78% loss 0.37160 |  (1064.019s, 0.012s)
+iter: 9 [test] err 2.02% adv_err_lb 4.74% adv_err 6.46% adv_err_ub 6.46% | [valid] err 2.71% adv_err 6.87% | [train] err 2.64% adv_err 6.56% loss 0.35564 |  (1200.076s, 0.013s)
