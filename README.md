@@ -1,9 +1,9 @@
 # On L-p Robustness of Decision Stumps and Trees
 
-This repo contains an implementation of **L-p robustness of Ensemble Decision Stumps and Trees**, based on [provably-robust-boosting](https://github.com/max-andr/provably-robust-boosting) and [treeVerification](https://github.com/chenhongge/treeVerification)
+This repo contains an implementation of **[L-p robustness of Ensemble Decision Stumps and Trees](https://proceedings.icml.cc/static/paper_files/icml/2020/6513-Paper.pdf)**, based on [provably-robust-boosting](https://github.com/max-andr/provably-robust-boosting) and [treeVerification](https://github.com/chenhongge/treeVerification)
 
-## Dependences
-### ensemble stump verification and ensemble stump/tree training
+## Dependencies
+### Ensemble stump verification and ensemble stump/tree training
 
 - tensorflow
 - treelite
@@ -13,7 +13,7 @@ This repo contains an implementation of **L-p robustness of Ensemble Decision St
 
 Please see Lp_stumps_trees/requirements.txt for the detail information.
 
-### ensemble tree verification
+### Ensemble tree verification
 - the same as https://github.com/chenhongge/treeVerification
 
 `sudo apt install libuv1-dev libboost-all-dev`
