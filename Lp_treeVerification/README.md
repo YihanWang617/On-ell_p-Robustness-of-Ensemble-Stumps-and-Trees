@@ -1,7 +1,7 @@
 Robustness Verification of Tree-based Models
 ======================================
 
-**This repo has been updated by Yihan Wang.**
+**This repo has been updated by Yihan Wang. An additional parameter `order` has been added for Lp norm verification.**
 
 We develop an efficient verification algorithm that can give tight lower bounds
 on robustness for decision tree ensembles (specifically, gradient boosted
